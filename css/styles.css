@@ -33,12 +33,74 @@ nav a:hover{
   background-color: white;
   color: black;
 }
-
+.nav-bar__inner {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  text-align: right;
+}
 .cart {
-  color: white;
-  margin-right: 25px;
+  display: inline-block;
+  font-size: 1rem;
+  height: 3.75em;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  color: #fff;
+}
+
+.cart-content {
+  z-index: 1;
+  position: absolute;
+  top: 4.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 570px;
+  padding: 1rem;
+  background: #fff;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+}
+
+.cart-content__close {
   float: right;
 }
+
+.cart-content__title {
+  margin: 1em 0 0.5em 0;
+}
+
+.cart-items {
+  width: 100%;
+  text-align: right;
+}
+.cart-items thead tr {
+ background-color: #83cf6a;
+ font-weight: bold;
+}
+.cart-items tbody tr:nth-child(even) {
+ background-color: #83cf6a;
+}
+.cart-items tbody tr:nth-child(odd) {
+ background-color: #90d7c0;
+}
+.cart-items__head {
+  text-align: left;
+}
+.cart-items__product {
+  text-align: left;
+}
+.cart-items__num-label {
+  max-width: 3rem;
+}
+.cart-items__price-label {
+  max-width: 3rem;
+}
+.cart-items tfoot {
+  font-weight: bold;
+ }
 
 body {
     font-family: tahoma;
@@ -53,14 +115,16 @@ body {
   }
 
   img {
-    border: 1px solid #d8d8d8;
-    width: 70%;
-    margin: 40px;
-    box-shadow: 0px .5px 1px #d8d8d8;
+    width: 80%;
   }
   
   .product-image {
-    width: 100%;
+    width: 80%;
+  }
+  
+  .variants {
+    padding: 0;
+    list-style-type: none;
   }
 
   .product-image,
@@ -95,9 +159,14 @@ body {
   button:active{
     background-color: #1a8bdc;
   }
+  .-disabled {
+    background-color: #ccc;
+    color: #999;
+    cursor: not-allowed;
+  }
+  
   .disabledButton {
     background-color: #d8d8d8;
-    cursor: not-allowed;
   }
   
   .review-form {
@@ -127,26 +196,36 @@ body {
     color: #16C0B0;
     text-decoration: underline;
   }
-
-  /*make columns stack for mobile*/
+  
+  /* make columns stack for mobile */
 @media screen {
-  .column-1{
-    flex: 100%;
-    max-width:100%;
+  .product {
+    display: flex;
+    flex-flow: wrap;
   }
-  .column-2 {
-    flex: 100%;
-    max-width: 100%;
+
+  .product-image,
+  .product-info {
+    width: 100%;
+  }
+
+  .section-reviews {
+    flex-grow: 1;
   }
 }
-/*create responsive columns, 2 for tablet*/
+/* create responsive columns, 2 for tablet */
 @media screen and (min-width: 768px){
-  .column-1 {
-    flex: 45%;
-    max-width: 45%;
+  .product {
+    display: flex;
+    flex-flow: wrap;
   }
-  .column-2 {
-    flex: 55%;
-    max-width: 55%;
+
+  .product-image,
+  .product-info {
+    width: 50%;
   }
-}
+
+  .section-reviews {
+    flex-grow: 1;
+  }
+} 
