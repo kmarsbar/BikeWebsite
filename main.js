@@ -32,14 +32,15 @@ Vue.component('product', {
           >
           </li>
         </ul>
-
+        <br> <!--move the price and stock info below the colours-->
+        <br> <!--move the price and stock info below the colours-->
         <p>Price: $ {{price}}</p>
 
         <p>{{ productStatus }}</p>
 
         <button 
           @click="addToCart" 
-          class="button"
+          class="product-button"
           :class="{ '-disabled': !inStock }"
           :disabled="!inStock"
         >Add to cart</button>
@@ -220,7 +221,6 @@ Vue.component('product-tabs', {
   },
   template: `
     <div>
-    
       <ul>
         <span class="tabs" 
               :class="{ activeTab: selectedTab === tab }"
@@ -241,8 +241,7 @@ Vue.component('product-tabs', {
       </div>
       <div v-show="selectedTab === 'Make a Review'">
         <product-review></product-review>
-      </div>
-  
+      </div>  
     </div>
   `,
   data() {
@@ -307,7 +306,7 @@ Vue.component('cart-content', {
   `,
   methods: {
     hideCartContent() {
-      // Not OK, because showCartContent in app doesn't change!
+      // showCartContent in website doesn't change
       // this.showCartContent = false;
 
       // So change the root data instead!
