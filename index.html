@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <header>
+        <img class="logo" src="./images/square-logo.png" alt="NZ Tours Logo">
+      </header>
+
+    <div id="app">
+        <nav><!--menu/navigation bar-->
+            <a href="#">Home</a>
+            <a href="index.html">Mountain Bikes</a>
+            <a href="#">Road Bikes</a>
+            <a href="#">Electric Bikes</a>
+            <div class="cart">
+                <p>Cart({{ cart.length }})</p><!--find way to put cart in nav bar-->
+            </div>
+        </nav>
+        <product :premium="premium" @add-to-cart="updateCart"></product>
+    </div>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="main.js"></script>
+</body>
+</html> 
