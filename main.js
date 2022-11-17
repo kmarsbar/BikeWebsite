@@ -62,23 +62,23 @@ Vue.component('product', {
         {
           variantId: 2234,
           variantPrice: 1449.99,
-          variantColor: 'red',
-          variantImage: './images/red-bike.jpg',
+          variantColor: 'Black',
+          variantImage: './images/black-bike.jpg',
           variantQuantity: 15     
         },
         {
           variantId: 2235,
           variantPrice: 1459.99,
-          variantColor: 'grey',
-          variantImage: './images/black-bike.jpg',
-          variantQuantity: 22     
+          variantColor: 'Red',
+          variantImage: './images/red-bike.jpg',
+          variantQuantity: 5     
         },
         {
           variantId: 2236,
           variantPrice: 1469.99,
-          variantColor: 'teal',
+          variantColor: 'turquoise',
           variantImage: './images/mint-bike.jpg',
-          variantQuantity: 5     
+          variantQuantity: 1     
         }
       ],
       classes: {
@@ -125,9 +125,9 @@ Vue.component('product', {
       if (quantity > 10) {
         return 'In stock.';
       } else if (quantity <= 10 && quantity > 1 ) {
-        return `Almost sold out, only ${quantity} items are available!`;
+        return `Almost sold out, only ${quantity} available!`;
       } else if (quantity == 1 ) {
-        return `Hurry! Just 1 item is available!`;
+        return `Hurry! Only 1 left!`;
       } else {
         return 'Out of stock.'
       }
@@ -229,12 +229,12 @@ Vue.component('product-tabs', {
               :key="tab"
         >{{ tab }}</span>
       </ul>
-      <div v-show="selectedTab === 'Reviews'">
-          <p v-if="!reviews.length">There are no reviews yet.</p>
+      <div class="view-reviews" v-show="selectedTab === 'Reviews'">
+          <p class="no-reviews" v-if="!reviews.length">There are no reviews yet.</p>
           <ul v-else>
               <li v-for="(review, index) in reviews" :key="index">
-                <p>{{ review.name }}</p>
-                <p>Rating:{{ review.rating }}</p>
+                <p>Name: {{ review.name }}</p>
+                <p>Rating: {{ review.rating }}</p>
                 <p>{{ review.review }}</p>
               </li>
           </ul>
