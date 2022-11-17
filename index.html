@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
@@ -15,9 +14,10 @@
             <a href="#">Road Bikes</a>
             <a href="#">Electric Bikes</a>
             <div class="cart">
-                <button>Cart({{ cart.length }})</button><!--find way to put cart in nav bar-->
+                <p>Cart({{ cart.length }})</p>
             </div>
         </nav>
+        <cart-content :items="cart"></cart-content>
         <product :premium="premium" @add-to-cart="updateCart"></product>
     </div>
     

@@ -56,23 +56,23 @@ Vue.component('product', {
           variants: [
             {
               variantId: 2234,
+              variantPrice: 1450,
               variantColor: 'red',
               variantImage: './images/red-bike.jpg',
-              variantPrice: 1450,
               variantQuantity: 10     
             },
             {
               variantId: 2235,
+              variantPrice: 1450,
               variantColor: 'grey',
               variantImage: './images/black-bike.jpg',
-              variantPrice: 1450,
               variantQuantity: 10     
             },
             {
               variantId: 2236,
+              variantPrice: 1450,
               variantColor: 'teal',
               variantImage: './images/mint-bike.jpg',
-              variantPrice: 1450,
               variantQuantity: 0     
             }
           ],
@@ -80,8 +80,14 @@ Vue.component('product', {
       }
     },
       methods: {
-        addToCart() {
-            this.$emit('add-to-cart', this.variants[this.selectedVariant].variantId)
+        addToCart: function() {
+          let cartItem = {
+            product: this.product,
+            variant: this.variants[this.selectedVariant].variantId,
+            color: this.variants[this.selectedVariant].variantColor,
+            price: this.variants[this.selectedVariant].variantPrice,
+          };
+            this.$emit('add-to-cart', cartItem)
         },
         updateProduct(index) {  
             this.selectedVariant = index
@@ -254,6 +260,37 @@ Vue.component('info-tabs', {
     }
   })
   
+  Vue.component('cart-content', {
+    props: {
+      items: {
+        type: Array,
+        required: true
+      }
+    },
+    template: `
+      <div class="cart-content">
+        <h2>Your cart</h2>
+        <table v-if="items.length">
+        <thead >
+          <tr>
+            <th>Num.</th>
+            <th>Item</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(item, index) in items">
+            <td>{{index + 1}}.</td>
+            <td>{{item.product}} - {{item.color}}</td>
+            <td>$ {{item.price}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <p v-else>Your cart is empty</p>
+      </div>
+    `
+  })
+
   var app = new Vue({
       el: '#app',
       data: {
