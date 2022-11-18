@@ -1,7 +1,7 @@
-// Event bus ------------------------------------------------------------------
+// Event bus
 var eventBus = new Vue()
 
-// Product --------------------------------------------------------------------
+// Product 
 Vue.component('product', {
   props: {
     premium: {
@@ -16,14 +16,17 @@ Vue.component('product', {
       </div>
 
       <div class="product-info">
+        <!-- print out the brand + product name -->
         <h1 class="product-title">{{ title }}</h1>
         <h3>Details</h3>
+        <!-- print out details of product in list form -->
         <ul>
           <li v-for="detail in details">{{ detail}}</li>
         </ul>
         
         <h3>More Colours</h3>
-        <ul class="variants">
+        <!-- colour boxes -->
+        <ul class="variants"> 
           <li v-for="(variant, index) in variants" 
               :key="variant.variantId"
               class="color-box"
@@ -37,7 +40,7 @@ Vue.component('product', {
         <p>Price: $ {{price}}</p>
 
         <p>{{ productStatus }}</p>
-
+        <!-- button to add products to cart -->
         <button 
           @click="addToCart" 
           class="product-button"
@@ -58,6 +61,7 @@ Vue.component('product', {
       brand: 'Trek',
       selectedVariant: 0,
       details: ['Alpha Silver Aluminium Frame','14g Stainless Steel Spokes','Weight: 13.77 kg'],
+      // all product options
       variants: [
         {
           variantId: 2234,
@@ -122,6 +126,7 @@ Vue.component('product', {
     },
     productStatus() {
       const quantity = this.variants[this.selectedVariant].variantQuantity;
+      // if statment to adjust stock message based on stock levels
       if (quantity > 10) {
         return 'In stock.';
       } else if (quantity <= 10 && quantity > 1 ) {
@@ -157,11 +162,12 @@ Vue.component('product', {
   }
 })
 
-// Review ---------------------------------------------------------------------
+// Review 
 Vue.component('product-review', {
   template: `
   <form class="review-form" @submit.prevent="onSubmit">
     <p>
+    <!-- 'required' in the input line makes it mandatory for the user to fill in and doesn't produce a pop up! -->
       <label for="name">Name:</label>
       <input id="name" v-model="name" required>
     </p>
@@ -211,7 +217,7 @@ Vue.component('product-review', {
   }
 })
 
-// Product-tabs ---------------------------------------------------------------
+// Product-tabs 
 Vue.component('product-tabs', {
   props: {
     reviews: {
@@ -253,7 +259,7 @@ Vue.component('product-tabs', {
 })
 
 
-// Cart-content ---------------------------------------------------------------
+// Cart-content 
 Vue.component('cart-content', {
   props: {
     showCartContent: {
@@ -265,6 +271,8 @@ Vue.component('cart-content', {
       required: false
     }
   },
+  // for cart to be clickable instead of just showing item count
+  // when user clicks on cart icon it pops up a cart with the ability to remove items and see total 
   template: `
     <div v-show="showCartContent" class="cart-content">
       <button @click="hideCartContent" class="cart-content__close">Close</button>
@@ -300,17 +308,14 @@ Vue.component('cart-content', {
           </tr>
         </tfoot>
       </table>
-
+      <!-- if theres nothing in cart then produce output below -->
       <p v-else>Your cart is empty.</p>
     </div>
   `,
   methods: {
     hideCartContent() {
-      // showCartContent in website doesn't change
-      // this.showCartContent = false;
-
-      // So change the root data instead!
-      // See: https://vuejs.org/v2/guide/components-edge-cases.html#Accessing-the-Root-Instance
+      // change the root data
+      // https://vuejs.org/v2/guide/components-edge-cases.html#Accessing-the-Root-Instance
       this.$root.showCartContent = false;
     },
     deleteItem(index, variant) {
@@ -325,7 +330,7 @@ Vue.component('cart-content', {
   }
 })
 
-// App ------------------------------------------------------------------------
+// App
 var app = new Vue({ // Vue instance with options object passed as parameter.
   el: '#app',
   data: {

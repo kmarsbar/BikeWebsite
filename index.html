@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <head>
+    <!-- linking the css stylesheet -->
     <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
     <header>
-        <img class="logo" src="./images/square-logo.png" alt="NZ Tours Logo">
+        <!-- bike shop logo -->
+        <img class="logo" src="./images/square-logo.png" alt="The Bike Shop logo">
     </header>
     <div id="app">
-      <nav>
+      <!-- navigation bar inside of vue app component to ensure seamless layout -->
+      <nav> 
             <a href="#">Home</a>
             <a href="index.html">Mountain Bikes</a>
             <a href="#">Road Bikes</a>
             <a href="#">Electric Bikes</a>
+        <!-- pop-up cart section -->
         <div class="nav-bar__inner">
           <button @click="toggleCartContent" 
                   class="cart" 
@@ -21,15 +25,15 @@
           </button>
         </div>        
     </nav>
-  
+      <!-- show items in cart -->
       <cart-content 
         :show-cart-content="showCartContent"
         :items="cart"
       ></cart-content>
-      
+      <!-- show shipping price and add to cart button, cart button updates the cart total -->
       <product :premium="premium" @add-to-cart="updateCart"></product>
     </div>
-    
+    <!-- scripts linking vue & javascript file -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
     <script src="main.js"></script>
   </body>
