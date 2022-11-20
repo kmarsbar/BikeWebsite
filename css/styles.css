@@ -68,6 +68,11 @@ nav a:hover{
 /* controls all sections of table in cart */
 .cart-content__close {
   float: right;
+  border: none;
+  padding: 10px 27px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .cart-content__title {
@@ -82,14 +87,6 @@ nav a:hover{
 .cart-items thead tr {
  background-color: #cacaca;
  font-weight: bold;
-}
-
-.cart-items tbody tr:nth-child(even) {
- background-color: #cacaca;
-}
-
-.cart-items tbody tr:nth-child(odd) {
- background-color: #adb1b0;
 }
 
 .cart-items__head {
@@ -110,6 +107,7 @@ nav a:hover{
 
 .cart-items__action button {
 background-color: transparent;
+border: none;
 }
 
 .cart-items tfoot {
@@ -153,6 +151,11 @@ body {
     height: 40px;
     margin: 5px;
     cursor: pointer;
+    border-radius: 2px;
+  }
+
+  .color-box:hover{
+    filter: brightness(70%);   
   }
 
   ul {
@@ -162,7 +165,7 @@ body {
   .product-button {
     margin-top: 30px;
     border: none;
-    background-color: #1E95EA;
+    background-color: #07ce3c;
     color: white;
     height: 40px;
     width: 100px;
@@ -172,7 +175,7 @@ body {
   } 
   
   .product-button:active{
-    background-color: #1a8bdc;
+    background-color: #07c53a;
   }
   .-disabled {
     background-color: #ccc;
@@ -227,6 +230,14 @@ body {
     border: 1px solid #d8d8d8;
     padding: 1rem;
     margin-bottom: 1rem;
+  }
+  .submit{
+    border: none;
+    height: 25px;
+    margin-bottom: 20px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
   }
   
   .activeTab {

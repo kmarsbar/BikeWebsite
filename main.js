@@ -66,7 +66,7 @@ Vue.component('product', {
         {
           variantId: 2234,
           variantPrice: 1449.99,
-          variantColor: 'Black',
+          variantColor: 'Navy',
           variantImage: './images/black-bike.jpg',
           variantQuantity: 15     
         },
@@ -80,7 +80,7 @@ Vue.component('product', {
         {
           variantId: 2236,
           variantPrice: 1469.99,
-          variantColor: 'turquoise',
+          variantColor: 'Turquoise',
           variantImage: './images/mint-bike.jpg',
           variantQuantity: 1     
         }
@@ -186,7 +186,7 @@ Vue.component('product-review', {
       </select>
     </p>
     <p>
-      <input type="submit" value="Submit">  
+      <input class="submit" type="submit" value="Submit">  
     </p>    
 
   </form>
@@ -283,7 +283,7 @@ Vue.component('cart-content', {
       <table v-if="items.length" class="cart-items">
         <thead class="cart-items__head">
           <tr>
-            <th class="cart-items__num-label">Num.</th>
+            <th class="cart-items__num-label">Num</th>
             <th class="cart-items__product-label">Item</th>
             <th class="cart-items__price-label">Price</th>
             <th class="cart-items__action">Action</th>
