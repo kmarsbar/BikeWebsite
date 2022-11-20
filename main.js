@@ -226,15 +226,16 @@ Vue.component('product-tabs', {
     }
   },
   template: `
-    <div>
-      <ul>
-        <span class="tabs" 
-              :class="{ activeTab: selectedTab === tab }"
-              v-for="(tab, index) in tabs"
-              @click="selectedTab = tab"
-              :key="tab"
-        >{{ tab }}</span>
-      </ul>
+  <div class="section-reviews">
+  <ul class="tabs">
+    <li class="tab" 
+        :class="{ activeTab: selectedTab === tab }"
+        v-for="(tab, index) in tabs" 
+        :key="index"
+        @click="selectedTab = tab">
+          {{ tab }}
+    </li>
+  </ul>
       <div class="view-reviews" v-show="selectedTab === 'Reviews'">
           <p class="no-reviews" v-if="!reviews.length">There are no reviews yet.</p>
           <ul v-else>
@@ -248,7 +249,7 @@ Vue.component('product-tabs', {
       <div v-show="selectedTab === 'Make a Review'">
         <product-review></product-review>
       </div>  
-    </div>
+      </div>
   `,
   data() {
     return {

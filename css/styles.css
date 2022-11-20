@@ -204,8 +204,21 @@ body {
   }
 
   .tabs {
-    margin-left: 20px;
+    padding: 0;
+    list-style-type: none;
+    border-bottom: 1px solid #aaa;
     cursor: pointer;
+  }
+  .tab {
+    cursor: pointer;
+    background-color: #ccc;
+    padding: 0.25em;
+    border: 1px solid #aaa;
+    margin-right: 1em;
+    border: 1px solid #aaa;
+    display: inline-block;
+    position: relative;
+    border-bottom: none;
   }
   .no-reviews{
     margin-left: 60px;
@@ -217,8 +230,10 @@ body {
   }
   
   .activeTab {
-    color: #16C0B0;
-    text-decoration: underline;
+    background-color: white;
+    text-decoration: none;
+    border-bottom: 1px solid white;
+    margin-bottom: -1px;
   }
   
   /* make columns stack for mobile */
